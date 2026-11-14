@@ -1,0 +1,18 @@
+{
+  "name": "mediwatch-ui",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dependency-free browser interface for the MediWatch educational monitoring workspace",
+  "scripts": {
+    "test": "node --test tests/frontend.test.js",
+    "test:e2e": "playwright test",
+    "format": "prettier --write \"web/**/*.{js,css,html}\" \"tests/**/*.js\" playwright.config.js package.json \".github/**/*.yml\" \"docs/*.md\" README.md CONTRIBUTING.md SECURITY.md",
+    "check": "node --check web/app.js && node --check web/views.js && node --check web/detail.js && node --check web/charts.js && node --check web/helpers.js && node --check web/icons.js"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.1",
+    "prettier": "^3.10.1"
+  }
+}

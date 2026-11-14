@@ -1,0 +1,7 @@
+.venv/
+node_modules/
+data/
+test-results/
+playwright-report/
+package-lock.json
+docs/images/

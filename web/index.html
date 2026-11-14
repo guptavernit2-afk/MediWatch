@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#102d3a" />
+    <meta
+      name="description"
+      content="MediWatch AI is an educational patient monitoring workspace. Explore vital trends, review alerts, and keep patient observations in one place using fictional demo data."
+    />
+    <title>MediWatch AI · Patient monitoring, thoughtfully connected</title>
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script type="module" src="/static/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#overview" aria-label="MediWatch AI overview">
+          <span class="brand-mark" data-icon="pulse"></span>
+          <span
+            ><span class="brand-name">mediwatch<span class="brand-ai">AI</span></span
+            ><span class="brand-subtitle">CONNECTED CARE WORKSPACE</span></span
+          >
+        </a>
+        <div class="nav-section-label">WORKSPACE</div>
+        <nav class="nav-list" aria-label="Workspace">
+          <a class="nav-item active" href="#overview" data-view="overview" aria-current="page"
+            ><span data-icon="grid"></span><span class="nav-label">Overview</span></a
+          >
+          <a class="nav-item" href="#patients" data-view="patients"
+            ><span data-icon="users"></span><span class="nav-label">Patients</span
+            ><span class="nav-count" id="nav-patient-count">—</span></a
+          >
+          <a class="nav-item" href="#alerts" data-view="alerts"
+            ><span data-icon="bell"></span><span class="nav-label">Alert center</span
+            ><span class="nav-count alert-count" id="nav-alert-count" hidden>0</span></a
+          >
+          <a class="nav-item" href="#insights" data-view="insights"
+            ><span data-icon="chart"></span><span class="nav-label">Insights</span></a
+          >
+        </nav>
+        <div class="nav-section-label nav-management">PREFERENCES</div>
+        <nav class="nav-list" aria-label="Preferences">
+          <a class="nav-item" href="#settings" data-view="settings"
+            ><span data-icon="settings"></span><span class="nav-label">Settings</span></a
+          >
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="workspace-card">
+            <span class="workspace-icon" data-icon="shield"></span>
+            <div class="workspace-name" id="workspace-name">Demo workspace</div>
+            <div class="workspace-caption" id="workspace-caption">
+              A safe space to explore.<br />All patient data is fictional.
+            </div>
+            <span class="workspace-badge" id="workspace-badge"
+              ><span class="status-dot"></span> Educational use</span
+            >
+          </div>
+          <div class="sidebar-footer">
+            <span class="sidebar-footer-dot"></span> Designed for a clearer picture<span>v2.0</span>
+          </div>
+        </div>
+      </aside>
+      <button
+        class="sidebar-scrim"
+        data-action="close-sidebar"
+        aria-label="Close navigation"
+        tabindex="-1"
+        hidden
+      ></button>
+      <div class="workspace">
+        <header class="topbar">
+          <div class="topbar-start">
+            <button
+              class="icon-button mobile-menu"
+              data-action="toggle-sidebar"
+              aria-controls="sidebar"
+              aria-expanded="false"
+              aria-label="Open navigation"
+            >
+              <span data-icon="menu"></span>
+            </button>
+            <div class="breadcrumb">
+              <span>Workspace</span><span data-icon="chevron"></span
+              ><strong id="breadcrumb-current">Overview</strong>
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <span class="connection-badge" id="connection-badge"
+              ><span class="status-dot"></span><span id="connection-label">Connecting</span></span
+            >
+            <button
+              class="icon-button"
+              data-action="refresh"
+              aria-label="Refresh readings"
+              title="Refresh readings"
+            >
+              <span data-icon="refresh"></span>
+            </button>
+            <button
+              class="icon-button"
+              data-action="toggle-theme"
+              aria-label="Switch to dark theme"
+              title="Switch theme"
+              id="theme-toggle"
+            >
+              <span data-icon="moon"></span>
+            </button>
+            <button
+              class="icon-button notification-button"
+              data-action="view-alerts"
+              aria-label="Open alert center"
+            >
+              <span data-icon="bell"></span
+              ><span class="notification-dot" id="notification-dot" hidden></span>
+            </button>
+            <div class="operator">
+              <div class="avatar">MW</div>
+              <div class="operator-copy">
+                <strong>Workspace operator</strong><span id="operator-role">Demo session</span>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main class="main-content" id="main-content" tabindex="-1">
+          <div class="page-header">
+            <div>
+              <div class="eyebrow">YOUR MONITORING WORKSPACE</div>
+              <h1 class="page-title">A clearer picture of care.</h1>
+              <p class="page-subtitle">Connecting to your workspace…</p>
+            </div>
+          </div>
+          <div class="stats-grid" aria-label="Loading workspace">
+            <div class="stat-card skeleton"><div class="skeleton-line"></div></div>
+            <div class="stat-card skeleton"><div class="skeleton-line"></div></div>
+            <div class="stat-card skeleton"><div class="skeleton-line"></div></div>
+            <div class="stat-card skeleton"><div class="skeleton-line"></div></div>
+          </div>
+        </main>
+        <footer class="page-footer">
+          <span
+            ><span data-icon="shield"></span> Educational prototype · Not for clinical decision-making</span
+          ><span id="last-synced">Waiting for first sync</span>
+        </footer>
+      </div>
+    </div>
+    <div class="drawer-backdrop" id="drawer-backdrop" data-action="close-drawer" hidden></div>
+    <section
+      class="drawer"
+      id="patient-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="drawer-title"
+      hidden
+    ></section>
+    <dialog class="modal" id="modal" aria-labelledby="modal-title"></dialog>
+    <div class="toast-region" id="toast-region" role="status" aria-live="polite" aria-atomic="false"></div>
+    <noscript
+      ><div style="padding: 2rem; background: #fff; color: #142c3a; position: fixed; inset: 0; z-index: 1000">
+        MediWatch needs JavaScript to show readings and charts. Enable JavaScript and reload this page.
+      </div></noscript
+    >
+  </body>
+</html>
