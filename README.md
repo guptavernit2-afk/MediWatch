@@ -12,7 +12,7 @@ A patient monitoring workspace that turns vital signs into a readable overview, 
 ![SQLite](https://img.shields.io/badge/SQLite-persistent-003B57?logo=sqlite&logoColor=white)
 ![Frontend](https://img.shields.io/badge/Frontend-no_build_step-087F8C)
 
-[Get started](#get-started) · [What changed](#from-first-year-project-to-a-complete-workspace) · [API guide](docs/API.md) · [Deployment](docs/DEPLOYMENT.md)
+[Live demo](https://mediwatch-ai.onrender.com) · [Get started](#get-started) · [What changed](#from-first-year-project-to-a-complete-workspace) · [API guide](docs/API.md) · [Deployment](docs/DEPLOYMENT.md)
 
 </div>
 
