@@ -6,7 +6,7 @@
 
 A patient monitoring workspace that turns vital signs into a readable overview, a traceable history, and a focused review queue.
 
-[![Verify MediWatch](https://github.com/guptavernit2-afk/mediwatch-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/guptavernit2-afk/mediwatch-ai/actions/workflows/ci.yml)
+[![Verify MediWatch](https://github.com/guptavernit2-afk/MediWatch/actions/workflows/ci.yml/badge.svg)](https://github.com/guptavernit2-afk/MediWatch/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-persistent-003B57?logo=sqlite&logoColor=white)
@@ -37,8 +37,8 @@ A patient monitoring workspace that turns vital signs into a readable overview, 
 Requirements: **Python 3.11 or newer**. The application has no frontend package installation or build step. Node.js 22 or newer is used for development checks and automated frontend tests.
 
 ```bash
-git clone https://github.com/guptavernit2-afk/mediwatch-ai.git
-cd mediwatch-ai
+git clone https://github.com/guptavernit2-afk/MediWatch.git
+cd MediWatch
 python -m venv .venv
 ```
 
@@ -82,7 +82,7 @@ MediWatch began as a first-year FastAPI project: one Python file, an inline HTML
 ## Project layout
 
 ```text
-mediwatch-ai/
+MediWatch/
 ├── app.py                 # Uvicorn entrypoint and application factory
 ├── mediwatch/             # Configuration, persistence, monitoring, and API logic
 ├── web/                   # HTML, CSS, and browser-native JavaScript modules
