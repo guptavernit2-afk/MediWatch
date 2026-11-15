@@ -72,3 +72,17 @@ jobs:
             test-results/
           if-no-files-found: ignore
           retention-days: 7
+
+  storage-windows:
+    name: Windows storage tests
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - name: Install test dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Verify Windows backup and restore behavior
+        run: python -m pytest -q tests/test_storage.py

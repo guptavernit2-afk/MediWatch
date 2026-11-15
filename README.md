@@ -25,6 +25,7 @@ A patient monitoring workspace that turns vital signs into a readable overview, 
 - **See the whole ward.** A responsive overview brings patient acuity, vital trends, active alerts, and recent activity together.
 - **Find the right patient.** Search and filter the directory, inspect a patient's readings, and record new observations in a focused detail panel.
 - **Keep a real history.** SQLite stores patients, timestamped readings, notes, and alert acknowledgements across restarts. Refreshing the dashboard does not invent new readings.
+- **Keep recoverable copies.** Operator-only storage tools validate the database, create complete SQLite backups, and restore to a fresh location. Persistent hosting storage can be enabled later.
 - **Review what needs attention.** Individual severe readings can flag a critical state. Alerts have a persistent acknowledgement workflow rather than disappearing on refresh.
 - **Make the demo understandable.** Fictional records and a clearly marked simulator work immediately, without an API key. Non-demo mode starts empty and requires an API token.
 - **Ask for a summary when needed.** Local rules provide a baseline summary; optional Groq integration runs on explicit request and sends a minimal, deidentified vitals payload.
@@ -89,7 +90,8 @@ mediwatch-ai/
 ├── docs/
 │   ├── API.md             # Endpoint examples and request contracts
 │   ├── ARCHITECTURE.md    # Data flow and design decisions
-│   └── DEPLOYMENT.md      # Local, container, and hosted operation
+│   ├── DEPLOYMENT.md      # Local, container, and hosted operation
+│   └── STORAGE.md         # Database backup, restore, and later disk setup
 ├── .github/workflows/     # Automated verification
 ├── .env.example           # Safe configuration template
 ├── Dockerfile
@@ -135,7 +137,7 @@ The backend suite uses temporary databases and disables background simulation an
 
 ## Deploy and extend
 
-See the [deployment guide](docs/DEPLOYMENT.md) for persistent storage and container setup, the [architecture guide](docs/ARCHITECTURE.md) for implementation boundaries, and the [API guide](docs/API.md) for sensor ingestion examples.
+See the [deployment guide](docs/DEPLOYMENT.md) for container and hosted operation, the [storage guide](docs/STORAGE.md) for backup, restore, and later persistent-disk setup, the [architecture guide](docs/ARCHITECTURE.md) for implementation boundaries, and the [API guide](docs/API.md) for sensor ingestion examples.
 
 Run one application worker when using the demo simulator. A hosted filesystem may be ephemeral: configure a persistent database volume before expecting records to survive redeployments. A GitHub push updates source; hosting must be configured separately.
 

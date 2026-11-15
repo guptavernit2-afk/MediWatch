@@ -49,7 +49,7 @@ Health check: /api/health
 
 Set `DEMO_MODE=true` for a public portfolio demo. If the host does not supply `PORT`, use your configured port value instead.
 
-For durable records, attach a persistent volume, make sure the application user can write to it, and set `MEDIWATCH_DB_PATH` to an absolute path on that volume, such as `/var/data/mediwatch.db`. Host plans differ in persistent-disk support; review your selected service before relying on persistence. Without a volume, redeployments or host restarts may discard the workspace.
+For durable records, attach a persistent volume, make sure the application user can write to it, and set `MEDIWATCH_DB_PATH` to an absolute path on that volume, such as `/var/data/mediwatch.db`. Host plans differ in persistent-disk support; review your selected service before relying on persistence. Without a volume, redeployments or host restarts may discard the workspace. Before changing an existing service, follow the [storage guide](STORAGE.md) to back up its current database and plan a verified restore. Attaching a Render disk itself triggers a deployment.
 
 For an existing service that auto-deploys from GitHub, a push can trigger its configured deployment. Verify the service's deployment logs and health check afterward. This repository's CI verifies source; it does not provision hosting, attach disks, or guarantee that an existing live URL has updated.
 
