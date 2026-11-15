@@ -311,9 +311,6 @@
     letter-spacing: -0.55px;
     line-height: 1.2;
   }
-  .brand-name span {
-    color: #6bd0c2;
-  }
   .brand-subtitle {
     color: #86a9b7;
     font-size: 0.68rem;
@@ -2677,19 +2674,6 @@
     letter-spacing: 0.6px;
     white-space: nowrap;
     margin-top: 6px;
-  }
-  .brand-name .brand-ai {
-    display: inline-block;
-    flex-shrink: 0;
-    font-size: 0.58rem;
-    letter-spacing: 0;
-    font-weight: 600;
-    line-height: 1.15;
-    background: rgb(93 213 184 / 0.13);
-    border: 1px solid rgb(117 223 199 / 0.18);
-    padding: 2px 3px;
-    border-radius: 4px;
-    margin: 0;
   }
   .nav-item {
     text-decoration: none;

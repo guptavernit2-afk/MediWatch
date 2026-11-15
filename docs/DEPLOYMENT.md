@@ -27,8 +27,8 @@ No model access is required for the main application. Without a key, summaries u
 Build and run from the repository root:
 
 ```bash
-docker build -t mediwatch-ai .
-docker run --name mediwatch --rm -p 8000:8000 -v mediwatch-data:/data mediwatch-ai
+docker build -t mediwatch .
+docker run --name mediwatch --rm -p 8000:8000 -v mediwatch-data:/data mediwatch
 ```
 
 The image runs as an unprivileged user and stores its database in `/data`. A named volume preserves that data when the container is replaced. The health check reads `/api/health`. The container accepts `PORT`, defaulting to `8000`, and starts one worker.

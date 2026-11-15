@@ -169,7 +169,7 @@ function updateChrome() {
     $('#workspace-badge').innerHTML = `${icon('lock')} Token protected`;
     $('#operator-role').textContent = 'Protected session';
   }
-  document.title = `${views.labels[state.view]} · MediWatch AI`;
+  document.title = `${views.labels[state.view]} · MediWatch`;
 }
 
 function render() {

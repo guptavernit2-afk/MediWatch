@@ -1,6 +1,6 @@
 <div align="center">
 
-# MediWatch AI
+# MediWatch
 
 **Every signal. A clearer picture.**
 
@@ -16,7 +16,7 @@ A patient monitoring workspace that turns vital signs into a readable overview, 
 
 </div>
 
-![MediWatch AI overview with patient status, vital trends, and monitoring cards](docs/images/overview.png)
+![MediWatch overview with patient status, vital trends, and monitoring cards](docs/images/overview.png)
 
 > **Educational demonstration.** Seeded people, records, and readings are fictional. Thresholds are illustrative, summaries are unvalidated, and this project is not a medical device or a substitute for qualified clinical judgment. Keep real patient information out of public demo deployments.
 
@@ -24,7 +24,7 @@ A patient monitoring workspace that turns vital signs into a readable overview, 
 
 - **See the whole ward.** A responsive overview brings patient acuity, vital trends, active alerts, and recent activity together.
 - **Find the right patient.** Search and filter the directory, inspect a patient's readings, and record new observations in a focused detail panel.
-- **Keep a real history.** SQLite stores patients, timestamped readings, notes, and alert acknowledgements across restarts. Refreshing the dashboard does not invent new readings.
+- **Keep a real history.** SQLite stores patients, timestamped readings, notes, and alert acknowledgements while its database file is retained. Refreshing the dashboard does not invent new readings.
 - **Keep recoverable copies.** Operator-only storage tools validate the database, create complete SQLite backups, and restore to a fresh location. Persistent hosting storage can be enabled later.
 - **Review what needs attention.** Individual severe readings can flag a critical state. Alerts have a persistent acknowledgement workflow rather than disappearing on refresh.
 - **Make the demo understandable.** Fictional records and a clearly marked simulator work immediately, without an API key. Non-demo mode starts empty and requires an API token.
@@ -133,7 +133,7 @@ npm run test:e2e
 
 Browser tests start their own isolated server on `127.0.0.1:8765` with a temporary fictional database and no simulator or AI network access. Keep that port available; they do not touch your regular workspace database.
 
-The backend suite uses temporary databases and disables background simulation and external AI calls. Frontend tests cover escaped rendering, filters, empty states, and timestamp-based chart aggregation. GitHub Actions runs the backend suite on Python 3.11 and 3.13, frontend regression tests, browser module syntax checks, and a separate Chromium workflow job.
+The backend suite uses temporary databases and disables background simulation and external AI calls. Frontend tests cover escaped rendering, filters, empty states, and timestamp-based chart aggregation. GitHub Actions runs the backend suite on Python 3.11 and 3.13, frontend regression tests, browser module syntax checks, Windows backup/restore tests, and Chromium workflows including accessibility checks, mobile navigation, and patient admission through discharge.
 
 ## Deploy and extend
 
@@ -141,8 +141,10 @@ See the [deployment guide](docs/DEPLOYMENT.md) for container and hosted operatio
 
 Run one application worker when using the demo simulator. A hosted filesystem may be ephemeral: configure a persistent database volume before expecting records to survive redeployments. A GitHub push updates source; hosting must be configured separately.
 
+**Current hosting status:** Render persistent storage is deferred. The live demo can lose records when the service redeploys or its ephemeral filesystem is reset. The backup/restore tools are ready; follow the [storage guide](docs/STORAGE.md) when enabling a persistent disk. A CSV export is a patient snapshot, not a complete database backup.
+
 This project provides a starting point for learning and portfolio demonstrations. Real clinical use would require validated monitoring rules, identity and role management, audit retention, encrypted backups, clinical governance, and a deployment appropriate to the applicable privacy requirements.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow and [SECURITY.md](SECURITY.md) for reporting security issues. Built by [Vernit Gupta](https://github.com/guptavernit2-afk), refined from the original MediWatch AI project.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow and [SECURITY.md](SECURITY.md) for reporting security issues. Built by [Vernit Gupta](https://github.com/guptavernit2-afk), refined from the original first-year MediWatch project.
